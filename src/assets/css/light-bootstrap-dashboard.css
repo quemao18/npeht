@@ -443,12 +443,22 @@ input:focus {
 }
 .sidebar[data-color="blue"]:after {
   background: #1F77D0;
-  background: -moz-linear-gradient(top, #1F77D0 0%, #533ce1 100%);
+  background: -moz-linear-gradient(top, #1F77D0 0%, #828288 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1F77D0), color-stop(100%, #533ce1));
   background: -webkit-linear-gradient(top, #1F77D0 0%, #533ce1 100%);
   background: -o-linear-gradient(top, #1F77D0 0%, #533ce1 100%);
   background: -ms-linear-gradient(top, #1F77D0 0%, #533ce1 100%);
   background: linear-gradient(to bottom, #1F77D0 0%, #533ce1 100%);
+  background-size: 150% 150%;
+}
+.sidebar[data-color="MidnightBlue"]:after {
+  background: #191970;
+  background: -moz-linear-gradient(top, #191970 0%, #1F77D0 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #191970), color-stop(100%, #1F77D0));
+  background: -webkit-linear-gradient(top, #191970 0%, #1F77D0 100%);
+  background: -o-linear-gradient(top, #191970 0%, #1F77D0 100%);
+  background: -ms-linear-gradient(top, #191970 0%, #1F77D0 100%);
+  background: linear-gradient(to bottom, #191970 0%, #1F77D0 100%);
   background-size: 150% 150%;
 }
 .sidebar[data-color="azure"]:after {

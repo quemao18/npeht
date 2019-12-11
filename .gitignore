@@ -39,3 +39,7 @@ testem.log
 #System Files
 .DS_Store
 Thumbs.db
+
+#deploy firebase
+/backend
+.firebase/hosting.YmFja2VuZA.cache

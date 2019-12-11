@@ -4,7 +4,7 @@ import { NavItem, NavItemType } from '../lbd.module';
 import { MobileSidebarToggleService } from '../services/mobile-sidebar-toggle.service';
 import { AuthService } from '../../services/auth.service';
 import { UserService } from '../../services/user.service';
-export type BackgroundColor = 'blue' | 'azure' | 'green' | 'orange' | 'red' | 'purple';
+export type BackgroundColor = 'blue' | 'azure' | 'green' | 'orange' | 'red' | 'purple' | 'MidnightBlue';
 
 @Component({
   selector: 'lbd-sidebar',

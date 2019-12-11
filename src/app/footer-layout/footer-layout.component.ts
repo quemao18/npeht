@@ -25,6 +25,6 @@ export class FooterLayoutComponent implements OnInit {
       */
    ];
    
-    this.copyright = '&copy; <a href="http://www.npeht.com">NPEHT</a>';
+    this.copyright = '&copy; <a href="https://www.npeht.com">NPEHT</a>';
   }
 }
