@@ -52,7 +52,10 @@ import { ImageUploadModule } from "angular2-image-upload";
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 
 import { Ng2CompleterModule } from "ng2-completer";
+import { environment } from '../environments/environment.prod';
 //import { PaginationModule, TabsModule } from 'ngx-bootstrap';
+import { AngularFireModule,} from "@angular/fire";
+
 
 const appRoutes: Routes = [
   { path: 'maps', component: MapsComponent },
@@ -134,7 +137,9 @@ const appRoutes: Routes = [
     CustomFormsModule,
     NgxMyDatePickerModule.forRoot(),
     ImageUploadModule.forRoot(),
-    Ng2CompleterModule
+    Ng2CompleterModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+
   ],
   providers: [AuthGuard, AuthService, UserService, MediaService, NewService, DatePipe, SchoolService,
   {provide: LocationStrategy, useClass: HashLocationStrategy}
