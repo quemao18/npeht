@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject } from 'rxjs';
+import { map } from "rxjs/operators";
 import * as vars from '../config';
 import { Http, Headers, URLSearchParams, RequestOptions, Jsonp } from '@angular/http';
 //import { AUTH_CONFIG } from './auth0-variables';
@@ -72,7 +73,7 @@ public getSubCompanies(id_company){
       let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
       let options = new RequestOptions({ headers: headers });
       return this.http.post(vars.apiUrl+ "/users/update_user/", "user="+JSON.stringify(user)+"&"+vars.nameKeyApi+"="+vars.keyApi, options)
-      .map(res => res);
+      .pipe(map(res => res));
   }
 
     public updateUserApp(user, sponsor, platinum){
@@ -80,7 +81,7 @@ public getSubCompanies(id_company){
       let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
       let options = new RequestOptions({ headers: headers });
       return this.http.post(vars.apiUrl+ "/users/update_user_app/", "user="+JSON.stringify(user)+"&sponsor="+JSON.stringify(sponsor)+"&platinum="+JSON.stringify(platinum)+"&"+vars.nameKeyApi+"="+vars.keyApi, options)
-      .map(res => res);
+      .pipe(map(res => res));
   }
 
   public updateUserAppBack(user, sponsor, platinum){
@@ -88,14 +89,14 @@ public getSubCompanies(id_company){
     let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
     let options = new RequestOptions({ headers: headers });
     return this.http.post(vars.apiUrl+ "/users/update_user_app_back/", "user="+JSON.stringify(user)+"&sponsor="+JSON.stringify(sponsor)+"&platinum="+JSON.stringify(platinum)+"&"+vars.nameKeyApi+"="+vars.keyApi, options)
-    .map(res => res);
-}
+    .pipe(map(res => res));
+  }
     public newUser(user){
       //console.log(pago);
       let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
       let options = new RequestOptions({ headers: headers });
       return this.http.post(vars.apiUrl+ "/users/new_user/", "user="+JSON.stringify(user)+"&"+vars.nameKeyApi+"="+vars.keyApi, options)
-      .map(res => res);
+      .pipe(map(res => res));
   }
 
     public deleteUser(user){
@@ -103,7 +104,7 @@ public getSubCompanies(id_company){
       let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
       let options = new RequestOptions({ headers: headers });
       return this.http.post(vars.apiUrl+ "/users/delete_user/", "user="+JSON.stringify(user)+"&"+vars.nameKeyApi+"="+vars.keyApi, options)
-      .map(res => res);
+      .pipe(map(res => res));
   }
 
      public newUserApp(user, sponsor, platinum){
@@ -111,7 +112,7 @@ public getSubCompanies(id_company){
       let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
       let options = new RequestOptions({ headers: headers });
       return this.http.post(vars.apiUrl+ "/users/new_user_app/", "user="+JSON.stringify(user)+"&sponsor="+JSON.stringify(sponsor)+"&platinum="+JSON.stringify(platinum)+"&"+vars.nameKeyApi+"="+vars.keyApi, options)
-      .map(res => res);
+      .pipe(map(res => res));
   }
 
     public updateStatus(user){
@@ -119,7 +120,7 @@ public getSubCompanies(id_company){
       let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
       let options = new RequestOptions({ headers: headers });
       return this.http.post(vars.apiUrl+ "/users/update_status/", "user="+JSON.stringify(user)+"&"+vars.nameKeyApi+"="+vars.keyApi, options)
-      .map(res => res);
+      .pipe(map(res => res));
   }
 
     public getStatus(ita){
@@ -137,7 +138,7 @@ public getSubCompanies(id_company){
       let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
       let options = new RequestOptions({ headers: headers });
       return this.http.post(vars.apiUrl+ "/users/forget/", "user="+JSON.stringify(user)+"&"+vars.nameKeyApi+"="+vars.keyApi, options)
-      .map(res => res);
+      .pipe(map(res => res));
   }
    
    forgetPass2(user){
@@ -145,7 +146,7 @@ public getSubCompanies(id_company){
       let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
       let options = new RequestOptions({ headers: headers });
       return this.http.post(vars.apiUrl+ "/users/forget_2/", "user="+JSON.stringify(user)+"&"+vars.nameKeyApi+"="+vars.keyApi, options)
-      .map(res => res);
+      .pipe(map(res => res));
   }
 
    changePass(user){
@@ -153,7 +154,7 @@ public getSubCompanies(id_company){
       let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
       let options = new RequestOptions({ headers: headers });
       return this.http.post(vars.apiUrl+ "/users/change_password/", "user="+JSON.stringify(user)+"&"+vars.nameKeyApi+"="+vars.keyApi, options)
-      .map(res => res);
+      .pipe(map(res => res));
   }
 
   public fileChange(event) {
@@ -170,7 +171,7 @@ public getSubCompanies(id_company){
         return this.http.post(vars.apiUrl+ "/users/upload_avatar/"+vars.nameKeyApi+"/"+vars.keyApi, formDataUpload, options)
         //    .map(res => res);
         //return this.http.post(vars.apiUrl+ "/news/upload/", +formDataUpload+"&"+vars.nameKeyApi+"="+vars.keyApi, options)
-        .map(res => res);    
+        .pipe(map(res => res)); 
             
     }
     }

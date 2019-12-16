@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, trigger, state, style, transition, animate, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, } from '@angular/core';
 import { NavbarTitleService } from '../lbd/services/navbar-title.service';
 import { TableData } from '../lbd/lbd-table/lbd-table.component';
 import { Router } from '@angular/router';
@@ -7,89 +7,51 @@ import * as vars from '../config';
 import { ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
 import { UserService } from '../services/user.service';
 import { FormGroup, FormControl, FormBuilder, FormArray, Validators } from '@angular/forms';
+import { trigger, state, transition, style, animate } from '@angular/animations';
+
 
 @Component({
   selector: 'app-user',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss'],
   animations: [
-    trigger('cardtable1', [
+    trigger('cardprofile', [
       state('*', style({
-        '-ms-transform': 'translate3D(0px, 0px, 0px)',
-        '-webkit-transform': 'translate3D(0px, 0px, 0px)',
-        '-moz-transform': 'translate3D(0px, 0px, 0px)',
-        '-o-transform': 'translate3D(0px, 0px, 0px)',
-        transform: 'translate3D(0px, 0px, 0px)',
-        opacity: 1})),
-      transition('void => *', [
-        style({opacity: 0,
-          '-ms-transform': 'translate3D(0px, 150px, 0px)',
-          '-webkit-transform': 'translate3D(0px, 150px, 0px)',
-          '-moz-transform': 'translate3D(0px, 150px, 0px)',
-          '-o-transform': 'translate3D(0px, 150px, 0px)',
-          transform: 'translate3D(0px, 150px, 0px)',
-        }),
-        animate('0.3s 0s ease-out')
-      ])
-    ]),
-    trigger('cardtable2', [
-      state('*', style({
-        '-ms-transform': 'translate3D(0px, 0px, 0px)',
-        '-webkit-transform': 'translate3D(0px, 0px, 0px)',
-        '-moz-transform': 'translate3D(0px, 0px, 0px)',
-        '-o-transform': 'translate3D(0px, 0px, 0px)',
-        transform: 'translate3D(0px, 0px, 0px)',
-        opacity: 1})),
-      transition('void => *', [
-        style({opacity: 0,
-          '-ms-transform': 'translate3D(0px, 150px, 0px)',
-          '-webkit-transform': 'translate3D(0px, 150px, 0px)',
-          '-moz-transform': 'translate3D(0px, 150px, 0px)',
-          '-o-transform': 'translate3D(0px, 150px, 0px)',
-          transform: 'translate3D(0px, 150px, 0px)',
-        }),
-        animate('0.3s 0.25s ease-out')
-      ])
-    ]),
-   trigger('carduserprofile', [
-      state('*', style({
-        '-ms-transform': 'translate3D(0px, 0px, 0px)',
-        '-webkit-transform': 'translate3D(0px, 0px, 0px)',
-        '-moz-transform': 'translate3D(0px, 0px, 0px)',
-        '-o-transform': 'translate3D(0px, 0px, 0px)',
         transform: 'translate3D(0px, 0px, 0px)',
         opacity: 1
       })),
       transition('void => *', [
         style({opacity: 0,
-          '-ms-transform': 'translate3D(0px, 150px, 0px)',
-          '-webkit-transform': 'translate3D(0px, 150px, 0px)',
-          '-moz-transform': 'translate3D(0px, 150px, 0px)',
-          '-o-transform': 'translate3D(0px, 150px, 0px)',
           transform: 'translate3D(0px, 150px, 0px)',
         }),
         animate('0.3s 0s ease-out'),
       ])
     ]),
-    trigger('cardprofile', [
+    trigger('cardtable1', [
       state('*', style({
-        '-ms-transform': 'translate3D(0px, 0px, 0px)',
-        '-webkit-transform': 'translate3D(0px, 0px, 0px)',
-        '-moz-transform': 'translate3D(0px, 0px, 0px)',
-        '-o-transform': 'translate3D(0px, 0px, 0px)',
         transform: 'translate3D(0px, 0px, 0px)',
-        opacity: 1})),
+        opacity: 1
+      })),
       transition('void => *', [
         style({opacity: 0,
-          '-ms-transform': 'translate3D(0px, 150px, 0px)',
-          '-webkit-transform': 'translate3D(0px, 150px, 0px)',
-          '-moz-transform': 'translate3D(0px, 150px, 0px)',
-          '-o-transform': 'translate3D(0px, 150px, 0px)',
           transform: 'translate3D(0px, 150px, 0px)',
         }),
-        animate('0.3s 0.25s ease-out')
+        animate('0.3s 0s ease-out'),
       ])
-    ])
+    ]),
+    trigger('carduserprofile', [
+      state('*', style({
+        transform: 'translate3D(0px, 0px, 0px)',
+        opacity: 1
+      })),
+      transition('void => *', [
+        style({opacity: 0,
+          transform: 'translate3D(0px, 150px, 0px)',
+        }),
+        animate('0.3s 0s ease-out'),
+      ])
+    ]),
+
   ]
 })
 export class UsersComponent implements OnInit {
@@ -123,9 +85,9 @@ export class UsersComponent implements OnInit {
 
   private data:Array<any> = [];
 
-  @ViewChild('modalEdit')
+  @ViewChild('modalEdit', {static:true})
   modalEdit: ModalComponent;
-  @ViewChild('modal')
+  @ViewChild('modal', {static:true})
   modal: ModalComponent;
 
   public search:string ='';

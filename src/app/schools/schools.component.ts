@@ -1,4 +1,4 @@
-import {Component, OnInit, trigger, state, style, transition, animate, Output, EventEmitter, ViewChild, ElementRef} from '@angular/core';
+import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 import { Location, DatePipe } from '@angular/common';
 import { NavbarTitleService } from '../lbd/services/navbar-title.service';
 import {  Router, ActivatedRoute, Params } from '@angular/router';
@@ -11,97 +11,58 @@ import * as vars from '../config';
 import { ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
 import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 import { FormGroup, FormControl, FormBuilder, FormArray, Validators } from '@angular/forms';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 import { CompleterCmp, CompleterItem, CompleterService, CompleterData, RemoteData } from 'ng2-completer';
 import { Http, Headers, URLSearchParams, RequestOptions, Jsonp } from '@angular/http';
 import { CustomData } from "../services/custom-data";
 
 import {INgxMyDpOptions, IMyDateModel} from 'ngx-mydatepicker';
+import { trigger, state, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-schools',
   templateUrl: './schools.component.html',
   styleUrls: ['./schools.component.scss'],
-    animations: [
-    trigger('cardtable1', [
+  animations: [
+    trigger('cardprofile', [
       state('*', style({
-        '-ms-transform': 'translate3D(0px, 0px, 0px)',
-        '-webkit-transform': 'translate3D(0px, 0px, 0px)',
-        '-moz-transform': 'translate3D(0px, 0px, 0px)',
-        '-o-transform': 'translate3D(0px, 0px, 0px)',
-        transform: 'translate3D(0px, 0px, 0px)',
-        opacity: 1})),
-      transition('void => *', [
-        style({opacity: 0,
-          '-ms-transform': 'translate3D(0px, 150px, 0px)',
-          '-webkit-transform': 'translate3D(0px, 150px, 0px)',
-          '-moz-transform': 'translate3D(0px, 150px, 0px)',
-          '-o-transform': 'translate3D(0px, 150px, 0px)',
-          transform: 'translate3D(0px, 150px, 0px)',
-        }),
-        animate('0.3s 0s ease-out')
-      ])
-    ]),
-    trigger('cardtable2', [
-      state('*', style({
-        '-ms-transform': 'translate3D(0px, 0px, 0px)',
-        '-webkit-transform': 'translate3D(0px, 0px, 0px)',
-        '-moz-transform': 'translate3D(0px, 0px, 0px)',
-        '-o-transform': 'translate3D(0px, 0px, 0px)',
-        transform: 'translate3D(0px, 0px, 0px)',
-        opacity: 1})),
-      transition('void => *', [
-        style({opacity: 0,
-          '-ms-transform': 'translate3D(0px, 150px, 0px)',
-          '-webkit-transform': 'translate3D(0px, 150px, 0px)',
-          '-moz-transform': 'translate3D(0px, 150px, 0px)',
-          '-o-transform': 'translate3D(0px, 150px, 0px)',
-          transform: 'translate3D(0px, 150px, 0px)',
-        }),
-        animate('0.3s 0.25s ease-out')
-      ])
-    ]),
-   trigger('carduserprofile', [
-      state('*', style({
-        '-ms-transform': 'translate3D(0px, 0px, 0px)',
-        '-webkit-transform': 'translate3D(0px, 0px, 0px)',
-        '-moz-transform': 'translate3D(0px, 0px, 0px)',
-        '-o-transform': 'translate3D(0px, 0px, 0px)',
         transform: 'translate3D(0px, 0px, 0px)',
         opacity: 1
       })),
       transition('void => *', [
         style({opacity: 0,
-          '-ms-transform': 'translate3D(0px, 150px, 0px)',
-          '-webkit-transform': 'translate3D(0px, 150px, 0px)',
-          '-moz-transform': 'translate3D(0px, 150px, 0px)',
-          '-o-transform': 'translate3D(0px, 150px, 0px)',
           transform: 'translate3D(0px, 150px, 0px)',
         }),
         animate('0.3s 0s ease-out'),
       ])
     ]),
-    trigger('cardprofile', [
+    trigger('cardtable1', [
       state('*', style({
-        '-ms-transform': 'translate3D(0px, 0px, 0px)',
-        '-webkit-transform': 'translate3D(0px, 0px, 0px)',
-        '-moz-transform': 'translate3D(0px, 0px, 0px)',
-        '-o-transform': 'translate3D(0px, 0px, 0px)',
         transform: 'translate3D(0px, 0px, 0px)',
-        opacity: 1})),
+        opacity: 1
+      })),
       transition('void => *', [
         style({opacity: 0,
-          '-ms-transform': 'translate3D(0px, 150px, 0px)',
-          '-webkit-transform': 'translate3D(0px, 150px, 0px)',
-          '-moz-transform': 'translate3D(0px, 150px, 0px)',
-          '-o-transform': 'translate3D(0px, 150px, 0px)',
           transform: 'translate3D(0px, 150px, 0px)',
         }),
-        animate('0.3s 0.25s ease-out')
+        animate('0.3s 0s ease-out'),
       ])
-    ])
+    ]),
+    trigger('carduserprofile', [
+      state('*', style({
+        transform: 'translate3D(0px, 0px, 0px)',
+        opacity: 1
+      })),
+      transition('void => *', [
+        style({opacity: 0,
+          transform: 'translate3D(0px, 150px, 0px)',
+        }),
+        animate('0.3s 0s ease-out'),
+      ])
+    ]),
   ]
+  
 })
 export class SchoolsComponent implements OnInit {
 
@@ -118,11 +79,11 @@ export class SchoolsComponent implements OnInit {
   public page:number = 1;
   public pagination: number = vars.pagination;
   public url: any;
-  @ViewChild('modal')
+  @ViewChild('modal', {static:true})
   modal: ModalComponent;
-  @ViewChild('modalNewCategory')
+  @ViewChild('modalNewCategory', {static:true})
   modalNewCategory: ModalComponent;
-  @ViewChild('modalNewSubCategory')
+  @ViewChild('modalNewSubCategory', {static:true})
   modalNewSubCategory: ModalComponent;
   public title: string = 'Agregar';
   public titleModal: string = 'Media';
@@ -146,14 +107,14 @@ export class SchoolsComponent implements OnInit {
   public busy: boolean = false;
   public creator: any;
   public q : string = '';
-  @ViewChild("remoteDataCreator") private remoteDataCreator: CompleterCmp;
+  @ViewChild("remoteDataCreator", {static:true}) private remoteDataCreator: CompleterCmp;
   public name: string;
   public placeholderCreator: string;
   public customData: CustomData;
 
   public search:string ='';
 
-  @ViewChild("datepickerE") datepickerE: ElementRef;
+  @ViewChild("datepickerE", {static:true}) datepickerE: ElementRef;
   public isShowDatepicker: boolean = false;
   
   constructor(public datePipe:DatePipe, private http: Http, private completerService: CompleterService, private builder: FormBuilder, private _sanitizer: DomSanitizer, public schoolService: SchoolService, public userService: UserService, public activatedRoute: ActivatedRoute, private navbarTitleService: NavbarTitleService, public router: Router, public authGuard: AuthGuard, public authService: AuthService,  public location: Location,  private notificationService: NotificationService) {
@@ -247,7 +208,7 @@ export class SchoolsComponent implements OnInit {
             this.myFormUsers.enable();
             this.dataUsers = response.json(); 
         }, 
-        (error) => { console.log(error.json()); this.progress=false; }, 
+        (error) => { console.log(error); this.progress=false; }, 
         //() => this.onCompleteLogin()
     );
     
@@ -263,7 +224,7 @@ export class SchoolsComponent implements OnInit {
         (error) => { 
           this.showNotification('top', 'center', '<b>'+error.json().message+'</b>', 'pe-7s-attention', 4); 
           this.data = []; 
-          console.log(error.json()); 
+          console.log(error); 
           this.progress=false; 
         }, 
         //() => this.onCompleteLogin()
@@ -352,7 +313,7 @@ export class SchoolsComponent implements OnInit {
     //if(this.formData.users.ita==null)
      this.schoolService.newSchool(this.formData).subscribe(
         (response) => this.onSuccessNewSchool(response.json()), 
-        (error) => this.onErrorNewSchool(error.json()), 
+        (error) => this.onErrorNewSchool(error), 
         () => this.onCompleteNewSchool()
       );
     //}
@@ -387,7 +348,7 @@ export class SchoolsComponent implements OnInit {
     console.log('Submitting values', this.formData);
      this.schoolService.updateSchool(this.formData).subscribe(
         (response) => this.onSuccessUpdate(response.json()), 
-        (error) => this.onErrorUpdate(error.json()), 
+        (error) => this.onErrorUpdate(error), 
         () => this.onCompleteUpdate()
       );
   }

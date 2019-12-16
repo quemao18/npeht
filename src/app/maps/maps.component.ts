@@ -1,21 +1,10 @@
-import {Component, OnInit, trigger, state, transition, style, animate} from '@angular/core';
+import {Component, OnInit,} from '@angular/core';
 import { NavbarTitleService } from '../lbd/services/navbar-title.service';
 
 @Component({
   selector: 'app-maps',
   templateUrl: './maps.component.html',
   styleUrls: ['./maps.component.css'],
-  animations: [
-    trigger('maps', [
-      state('*', style({
-        opacity: 1})),
-      transition('void => *', [
-        style({opacity: 0,
-        }),
-        animate('1s 0s ease-out')
-      ])
-    ])
-  ]
 })
 export class MapsComponent implements OnInit {
   public lat = 40.748817;

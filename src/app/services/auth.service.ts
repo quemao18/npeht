@@ -1,6 +1,7 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject } from 'rxjs';
+import { map } from "rxjs/operators";
 import * as vars from '../config';
 import { Http, Headers, URLSearchParams, RequestOptions, Jsonp } from '@angular/http';
 import { UserService } from '../services/user.service';
@@ -58,7 +59,7 @@ export class AuthService {
       let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
       let options = new RequestOptions({ headers: headers });
       return this.http.post(vars.apiUrl+ "/users/user/", "user="+JSON.stringify(user)+"&"+vars.nameKeyApi+"="+vars.keyApi, options)
-      .map(res => res);
+      .pipe(map(res => res));
   }
 
   logout() {

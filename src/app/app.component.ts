@@ -1,6 +1,35 @@
 import {Component, OnInit} from '@angular/core';
-import { NavItem, NavItemType } from './lbd/lbd.module';
+// import { NavItem, NavItemType } from './lbd/lbd.module';
 import { AuthService } from './services/auth.service';
+
+
+export enum NavItemType {
+  Sidebar = 1, // Only ever shown on sidebar
+  NavbarLeft = 2, // Left-aligned icon-only link on navbar in desktop mode, shown above sidebar items on collapsed sidebar in mobile mode
+  NavbarRight = 3, // Right-aligned link on navbar in desktop mode, shown above sidebar items on collapsed sidebar in mobile mode
+  //Login = 4
+}
+export interface DropdownLink {
+  title: string;
+  routerLink?: string;
+}
+
+export interface NavItem {
+  type: NavItemType;
+  type2?: NavItemType;
+  title: string;
+  routerLink?: string;
+  iconClass?: string;
+  numNotifications?: number;
+  dropdownItems?: (DropdownLink | 'separator')[];
+  isLoggedIn?: boolean;
+  isAdminIn?: boolean;
+  isAuthIn?: boolean;
+  isPublishIn?: boolean;
+  isUserIn?: boolean;
+  userName?: string;
+}
+
 
 @Component({
   selector: 'app-root',
