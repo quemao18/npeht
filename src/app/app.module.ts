@@ -105,7 +105,7 @@ const appRoutes: Routes = [
     columnPipe,
     FilterPipe,
     SafePipe,
-    //UcFirstPipe,
+    UcFirstPipe,
     ChangePassComponent,
     AudiosComponent,
     VideosComponent,
@@ -114,7 +114,6 @@ const appRoutes: Routes = [
     ProfileComponent, 
     MinuteSecondsPipe, 
     PolicityComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -139,7 +138,6 @@ const appRoutes: Routes = [
     ImageUploadModule.forRoot(),
     Ng2CompleterModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-
   ],
   providers: [AuthGuard, AuthService, UserService, MediaService, NewService, DatePipe, SchoolService,
   {provide: LocationStrategy, useClass: HashLocationStrategy}
