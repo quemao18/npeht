@@ -131,6 +131,7 @@ export class AudiosComponent implements OnInit {
 
   constructor(private http: Http, private completerService: CompleterService, private builder: FormBuilder, private _sanitizer: DomSanitizer, public mediaService: MediaService, public userService: UserService, public activatedRoute: ActivatedRoute, private navbarTitleService: NavbarTitleService, public router: Router, public authGuard: AuthGuard, public authService: AuthService,  public location: Location,  private notificationService: NotificationService) {
     this.customData = new CustomData(userService, http); 
+    this.customData.search('');
    }
 
   ngOnInit() {
@@ -188,7 +189,7 @@ export class AudiosComponent implements OnInit {
           "id_user": selected.originalObject.id_user,
           "name": selected.originalObject.name + ' ' + selected.originalObject.last
         };
-        this.remoteDataCreator.blur();
+        // this.remoteDataCreator.blur();
     } else {
         this.formData.users = {};
     }
@@ -204,6 +205,7 @@ export class AudiosComponent implements OnInit {
             this.myFormUsers.enable();
             this.creator = 'Nombre del creador';
             this.dataUsers = response.json(); 
+            
         }, 
         (error) => { 
           this.showNotification('top', 'center', '<b>'+error.json().message+'</b>', 'pe-7s-attention', 4); 
@@ -261,7 +263,7 @@ export class AudiosComponent implements OnInit {
     this.formData.is_audio = 1;
     this.placeholderCreator = 'Nombre del creador';
     this.creator = '';
-    //this.getUsers('');
+    // this.getUsers('');
     
   }
 

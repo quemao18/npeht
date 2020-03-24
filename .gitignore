@@ -43,3 +43,4 @@ Thumbs.db
 #deploy firebase
 /backend
 .firebase/hosting.YmFja2VuZA.cache
+firebase-debug.log

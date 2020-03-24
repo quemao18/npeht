@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, enableProdMode } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes, CanActivate, CanActivateChild, CanDeactivate } from '@angular/router';
@@ -56,6 +56,8 @@ import { environment } from '../environments/environment.prod';
 //import { PaginationModule, TabsModule } from 'ngx-bootstrap';
 import { AngularFireModule,} from "@angular/fire";
 
+if(environment.production)
+enableProdMode();
 
 const appRoutes: Routes = [
   // { path: 'maps', component: MapsComponent },
