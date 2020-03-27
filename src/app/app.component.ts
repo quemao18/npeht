@@ -54,7 +54,7 @@ export class AppComponent implements OnInit {
       //{ type: NavItemType.Sidebar, title: 'Notifications', routerLink: 'notifications', iconClass: 'pe-7s-bell',  isLoggedIn: true },
       
       { type: NavItemType.Sidebar, title: 'Login', routerLink: 'login', iconClass: 'pe-7s-lock',  isLoggedIn: false, isAdminIn:false, isAuthIn:false, isPublishIn:false, isUserIn:false },
-      { type: NavItemType.Sidebar, title: 'Usuarios', routerLink: 'users', iconClass: 'pe-7s-users', isLoggedIn: true, isAdminIn:true, isAuthIn:true, isPublishIn:false, isUserIn:false },
+      { type: NavItemType.Sidebar, title: 'Usuarios Backend', routerLink: 'users', iconClass: 'pe-7s-users', isLoggedIn: true, isAdminIn:true, isAuthIn:true, isPublishIn:false, isUserIn:false },
       { type: NavItemType.Sidebar, title: 'Usuarios App', routerLink: 'users-app', iconClass: 'pe-7s-phone', isLoggedIn: true, isAdminIn:true, isAuthIn:true, isPublishIn:false, isUserIn:false },
       { type: NavItemType.Sidebar, title: 'Audios', routerLink: 'audios', iconClass: 'pe-7s-headphones', isLoggedIn: true, isAdminIn:true, isAuthIn:true, isPublishIn:true, isUserIn:false },
       { type: NavItemType.Sidebar, title: 'Videos', routerLink: 'videos', iconClass: 'pe-7s-video', isLoggedIn: true, isAdminIn:true, isAuthIn:true, isPublishIn:true, isUserIn:false },

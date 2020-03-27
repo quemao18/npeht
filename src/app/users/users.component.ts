@@ -107,7 +107,7 @@ export class UsersComponent implements OnInit {
 
   public ngOnInit() {
     
-    this.navbarTitleService.updateTitle('Usuarios');
+    this.navbarTitleService.updateTitle('Usuarios Backend');
     if(!this.userService.isAdmin() && !this.userService.isAuth() )
         this.router.navigate(['/dashboard']);
 
