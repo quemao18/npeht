@@ -497,12 +497,11 @@ export class UsersAppComponent implements OnInit {
   //this.data_sponsor = response.json();
   //this.data_platinum = response.json().filter(i => i.id_position < '6') ;
 
-  if(this.userService.isAdmin())
-    this.data = response.json();//.filter(i => i.id_rol == '4');
-  else
-    this.data = response.json().filter(i => /*i.id_rol == '4' &&*/ i.ita_platinum == localStorage.getItem('ita')); 
-  
-  //this.data = this.data.filter(i => i.id_rol < '4') ;
+  // if(this.userService.isAdmin())
+  //   this.data = response.json();//.filter(i => i.id_rol == '4');
+  // else
+  //   this.data = response.json().filter(i => /*i.id_rol == '4' &&*/ i.ita_platinum == localStorage.getItem('ita')); 
+  this.data = response.json().filter(i => i.id_rol == '4');
   }
 
 public getUsersAll(q){
