@@ -55,6 +55,8 @@ import { Ng2CompleterModule } from "ng2-completer";
 import { environment } from '../environments/environment.prod';
 //import { PaginationModule, TabsModule } from 'ngx-bootstrap';
 import { AngularFireModule,} from "@angular/fire";
+import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
+
 
 if(environment.production)
 enableProdMode();
@@ -140,6 +142,7 @@ const appRoutes: Routes = [
     ImageUploadModule.forRoot(),
     Ng2CompleterModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAnalyticsModule
   ],
   providers: [AuthGuard, AuthService, UserService, MediaService, NewService, DatePipe, SchoolService,
   {provide: LocationStrategy, useClass: HashLocationStrategy}
