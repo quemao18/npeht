@@ -32,15 +32,19 @@
       <tbody>
         <tr *ngFor="let row of data  | paginate: { itemsPerPage: pagination, currentPage: page }">
          <!-- | filterBy: ['name']: searchFilter.value <td *ngFor="let rowValues of row | rowPipe"> {{showRow(row, rowValues)}}</td> .-->
-         <td>  {{row.name}} - {{row.duration | minuteSeconds }} </td> 
+         <!-- {{row.duration | minuteSeconds }} -->
+         <td>  {{row.name}} {{row.is_audio == 1 ? '': '(Complemento)'}} </td> 
+         <td> <audio [src]="row.url | safe" controls>
+          <p>Tu navegador no implementa el elemento audio.</p>
+        </audio></td>
          <td>  {{row.name_module}} </td> 
-         <td>  {{row.is_audio == 1 ? 'Audio': 'Complemento'}} </td> 
+         <!-- <td>  {{row.is_audio == 1 ? 'Audio': 'Complemento'}} </td>  -->
          <td>  {{row.name_user_create}} {{row.last_user_create}}</td> <!-- Creado por -->
           <td> 
-              <a (click)="showAudio(row)" title="Ver" class="icon" [routerLink]=""><i class="pe-7s-play"></i></a> 
+              <!-- <a (click)="showAudio(row)" title="Ver" class="icon" [routerLink]=""><i class="pe-7s-play"></i></a>  -->
               <a (click)="editAudio(row)" title="Editar" class="icon" [routerLink]=""><i class="pe-7s-pen" ></i></a>
               <a [title]="row.status==0 ? 'Activar' : 'Desactivar'" (click)="changeStatus(row)" class="icon" [routerLink]=""><i (onCreate)="getStatusMedia(row.id_user)" [ngClass]="row.status==0 ? 'pe-7s-check' : 'pe-7s-power'"></i></a>
-              <a (click)="deleteAudio(row)" title="Elimiar" class="icon" [routerLink]=""><i class="pe-7s-trash" ></i></a>
+              <a (click)="deleteAudio(row)" title="Eliminar" class="icon" [routerLink]=""><i class="pe-7s-trash" ></i></a>
             </td>  
         </tr>
 

@@ -140,7 +140,7 @@ export class AudiosComponent implements OnInit {
     //    this.router.navigate(['/dashboard']);
     //this.showNotification('top', 'center', 'Debe permitir <b>ventanas emergentes</b> para reproducir el audio', 'pe-7s-attention', 3);
     this.tableData = {
-    headerRow: ['Nombre', 'Módulo', 'Audio/Complemento', 'Creado por' , 'ACCIONES'],
+    headerRow: ['Nombre', 'Reproducir', 'Módulo', 'Creado por' , 'ACCIONES'],
     };
 
     //this.IvooxGetID("http://mx.ivoox.com/es/audio-2-crea-tu-lista-audios-mp3_rf_4653879_1.html");

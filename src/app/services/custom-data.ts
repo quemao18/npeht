@@ -14,7 +14,7 @@ export class CustomData extends Subject<CompleterItem[]> implements CompleterDat
         this.userService.getUsers(term)
         .map((res: Response) => {
                 // Convert the result to CompleterItem[]
-                let data = res.json();
+                let data = res.json().filter(i => i.id_rol < '4');
                 let matches: CompleterItem[] = data.map((episode: any) => this.convertToItem(episode));
                 this.next(matches);
             })
