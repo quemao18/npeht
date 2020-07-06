@@ -34,7 +34,7 @@
          <!-- | filterBy: ['name']: searchFilter.value <td *ngFor="let rowValues of row | rowPipe"> {{showRow(row, rowValues)}}</td> .-->
          <!-- {{row.duration | minuteSeconds }} -->
          <td>  {{row.name}} {{row.is_audio == 1 ? '': '(Complemento)'}} </td> 
-         <td> <audio [src]="row.url | safe" controls>
+         <td> <audio [src]="row.url | safe" controls preload="metadata">
           <p>Tu navegador no implementa el elemento audio.</p>
         </audio></td>
          <td>  {{row.name_module}} </td> 
